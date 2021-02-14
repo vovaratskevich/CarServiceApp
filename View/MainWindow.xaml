@@ -22,7 +22,7 @@
                         <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
                     </ContextMenu>
                 </TabItem.ContextMenu>
-                <ListView x:Name="ViewAllSupplys" ItemsSource="{Binding AllSupply}"
+                <ListView x:Name="ViewAllSupplys" ItemsSource="{Binding AllSupplys}"
                           SelectedItem="{Binding SelectedSupply}">                    
                     <ListView.View>
                         <GridView>
@@ -80,7 +80,7 @@
                           SelectedItem="{Binding SelectedSupplier}">                    
                     <ListView.View>
                         <GridView>                            
-                            <GridViewColumn Header="Name"
+                            <GridViewColumn Header="Название"
                                             DisplayMemberBinding="{Binding Path=Name}"/>
                             <GridViewColumn Header="Адресс"
                                             DisplayMemberBinding="{Binding Path=Adress}"/>

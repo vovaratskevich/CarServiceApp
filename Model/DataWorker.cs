@@ -6,6 +6,7 @@ namespace CarServiceApp.Model
 {
     public static class DataWorker
     {
+
         //получить всех поставщиков 
         public static List<Supplier> GetAllSuppliers()
         {
@@ -227,7 +228,6 @@ namespace CarServiceApp.Model
                 List<Part> parts = (from part in GetAllParts() where part.SupplierId == id select part).ToList();
                 return parts;
             }
-
         }
     }
 }

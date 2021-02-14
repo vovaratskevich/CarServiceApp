@@ -9,7 +9,9 @@ using System.Windows.Media;
 namespace CarServiceApp.ViewModel 
 {
     public class DataManageVM : INotifyPropertyChanged
-    {        
+    {
+
+        
         //все поставщики
         private List<Supplier> allSuppliers = DataWorker.GetAllSuppliers(); 
         public List<Supplier> AllSuppliers
@@ -211,12 +213,12 @@ namespace CarServiceApp.ViewModel
         }
 
         #region Edit Commands
-        private RelayCommand editSypply;
-        public RelayCommand EditSypply
+        private RelayCommand editSupply;
+        public RelayCommand EditeSupply
         {
             get
             {
-                return editSypply ?? new RelayCommand(obj =>
+                return editSupply ?? new RelayCommand(obj =>
                 {
                     Window window = obj as Window;
                     string resultStr = "Не выбрана поставка!";

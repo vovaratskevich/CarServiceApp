@@ -20,7 +20,7 @@ namespace CarServiceApp.View
             DataContext = new DataManageVM();
             AllSuppliersView = ViewAllSuppliers;
             AllPartsView = ViewAllParts;
-            AllSupplysView = ViewAllSupplys;
+            AllSupplysView = ViewAllSupplys;            
         }
     }
 }

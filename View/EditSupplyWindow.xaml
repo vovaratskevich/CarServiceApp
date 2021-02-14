@@ -1,0 +1,32 @@
+﻿<Window x:Class="CarServiceApp.View.EditSupplyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarServiceApp.View"
+        mc:Ignorable="d"
+        Title="EditSupplyWindow" Height="300" Width="300"
+        Name="EditSupplyWnd">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="Количество"/>
+            <TextBox Name="CountOfPartBlock" Text="{Binding SupplyCountOfPart}"/>
+            <TextBlock Text="Дата"/>
+            <TextBox Name="DateBlock" Text="{Binding SupplyDate}"/>
+            <TextBlock Text="Деталь"/>
+            <ComboBox ItemsSource="{Binding AllParts}"   
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding SupplyPart}"/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="Редактировать поставку"
+                Command="{Binding EditSupply}"
+                CommandParameter="{Binding ElementName = EditSupplyWnd}"/>
+    </Grid>
+</Window>

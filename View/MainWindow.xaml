@@ -1,0 +1,103 @@
+﻿<Window x:Class="CarServiceApp.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarServiceApp.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" SelectedItem="{Binding SelectedTabItem}">
+            <TabItem Name="SupplyTab">
+                <TabItem.Header>
+                    <TextBlock Text="Поставки"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditeItem}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllSupplys" ItemsSource="{Binding AllSupply}"
+                          SelectedItem="{Binding SelectedSupply}">                    
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Поставщик"
+                                             DisplayMemberBinding="{Binding Path=SypplyPart.PartSupplier.Name}"/>
+                            <GridViewColumn Header="Деталь"
+                                             DisplayMemberBinding="{Binding Path=SypplyPart.Name}"/>
+                            <GridViewColumn Header="Количество"
+                                            DisplayMemberBinding="{Binding Path=CountOfPart}"/>
+                            <GridViewColumn Header="Дата"
+                                            DisplayMemberBinding="{Binding Path=Date}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Name="PartsTab">
+                <TabItem.Header>
+                    <TextBlock Text="Детали"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditeItem}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllParts" ItemsSource="{Binding AllParts}"
+                          SelectedItem="{Binding SelectedPart}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Название"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="Артикул"
+                                            DisplayMemberBinding="{Binding Path=VendorCode}"/>
+                            <GridViewColumn Header="Цена"
+                                            DisplayMemberBinding="{Binding Path=Price}"/>
+                            <GridViewColumn Header="Примечание"
+                                            DisplayMemberBinding="{Binding Path=Note}"/>
+                            <GridViewColumn Header="Поставщик"
+                                            DisplayMemberBinding="{Binding Path=PartSupplier.Name}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Name="SuppliersTab">
+                <TabItem.Header>
+                    <TextBlock Text="Поставщики"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditeItem}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllSuppliers" ItemsSource="{Binding AllSuppliers}"
+                          SelectedItem="{Binding SelectedSupplier}">                    
+                    <ListView.View>
+                        <GridView>                            
+                            <GridViewColumn Header="Name"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="Адресс"
+                                            DisplayMemberBinding="{Binding Path=Adress}"/>
+                            <GridViewColumn Header="Телефон"
+                                            DisplayMemberBinding="{Binding Path=Phone}"/>
+                            <GridViewColumn Header="Колличество деталей"
+                                            DisplayMemberBinding="{Binding Path=SupplierPart.Count}"/>                            
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+        </TabControl>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="Новая поставка" Command="{Binding OpenAddNewSupplyWnd}"/>
+            <Button Content="Новая деталь" Command="{Binding OpenAddNewPartsWnd}"/>
+            <Button Content="Новый поставщик" Command="{Binding OpenAddNewSuppliersWnd}"/>
+        </StackPanel>
+    </Grid>
+</Window>

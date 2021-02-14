@@ -1,0 +1,30 @@
+﻿<Window x:Class="CarServiceApp.View.AddNewSuppliersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarServiceApp.View"
+        mc:Ignorable="d"
+        Title="AddNewSuppliersWindow" Height="300" Width="300"
+        Name="AddNewSuppliersWnd">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="Название"/>
+            <TextBox Name ="NameBlock"  Text="{Binding SupplierName}"/>
+            <TextBlock Text="Адрес"/>
+            <TextBox Name ="AdressBlock" Text="{Binding SupplierAdress}"/>
+            <TextBlock Text="Телефон"/>
+            <TextBox Name ="PhoneBlock" Text="{Binding SupplierPhone}"/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="Добавить поставщика" 
+                Command="{Binding AddNewSupplier}"
+                CommandParameter="{Binding ElementName=AddNewSuppliersWnd}"/>
+    </Grid>
+</Window>
